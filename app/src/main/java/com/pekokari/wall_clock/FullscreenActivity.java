@@ -62,10 +62,10 @@ public class FullscreenActivity extends AppCompatActivity {
     private void animationLogo() {
         logo = (ImageView) findViewById(R.id.logo);
         logo.setVisibility(View.VISIBLE);
-        AlphaAnimation alphaFadeOut = new AlphaAnimation( 1.0f, 0.6f );
+        AlphaAnimation alphaFadeOut = new AlphaAnimation(1.0f, 0.6f);
         alphaFadeOut.setInterpolator( new AccelerateInterpolator() );
-        alphaFadeOut.setDuration( 4000 );
-        alphaFadeOut.setFillAfter( true );
+        alphaFadeOut.setDuration(4000);
+        alphaFadeOut.setFillAfter(true);
         alphaFadeOut.setAnimationListener( new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -73,11 +73,11 @@ public class FullscreenActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                AlphaAnimation alphaFadeIn = new AlphaAnimation( 0.6f, 1.0f );
-                alphaFadeIn.setInterpolator( new DecelerateInterpolator() );
-                alphaFadeIn.setDuration( 4000 );
-                alphaFadeIn.setFillAfter( true );
-                alphaFadeIn.setAnimationListener( new Animation.AnimationListener() {
+                AlphaAnimation alphaFadeIn = new AlphaAnimation(0.6f, 1.0f);
+                alphaFadeIn.setInterpolator(new DecelerateInterpolator());
+                alphaFadeIn.setDuration(4000);
+                alphaFadeIn.setFillAfter(true);
+                alphaFadeIn.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
                     }
@@ -91,20 +91,20 @@ public class FullscreenActivity extends AppCompatActivity {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 } );
-                logo.startAnimation( alphaFadeIn );
+                logo.startAnimation(alphaFadeIn);
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
             }
         } );
-        logo.startAnimation( alphaFadeOut );
+        logo.startAnimation(alphaFadeOut);
     }
 
     private void animationBar() {
         final DateFormat df = new SimpleDateFormat("s");
         final Date date = new Date(System.currentTimeMillis());
         int baseWidth = point.x / 60 * Integer.parseInt(df.format(date));
-        bar.setLayoutParams(new FrameLayout.LayoutParams(68 + baseWidth ,5));
+        bar.setLayoutParams(new FrameLayout.LayoutParams(68 + baseWidth, 5));
     }
 }
